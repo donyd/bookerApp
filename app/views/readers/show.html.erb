@@ -1,0 +1,28 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Firstname:</strong>
+  <%= @reader.firstname %>
+</p>
+
+<p>
+  <strong>Lastname:</strong>
+  <%= @reader.lastname %>
+</p>
+
+<p>
+  <strong>Email:</strong>
+  <%= @reader.email %>
+</p>
+
+<h2>Bookshelves</h2>
+<% @reader.bookshelves.each do |bookshelf| %>
+<p>
+  <b>Bookshelf name</b>
+  <%= bookshelf.shelf_name %>
+</p>
+<% end %>
+
+<%= link_to 'Edit Reader', edit_reader_path(@reader) %> |
+<%= link_to 'Back to Readers', readers_path %> |
+<%= link_to 'Show Bookshelves', reader_bookshelves_path(@reader) %>
