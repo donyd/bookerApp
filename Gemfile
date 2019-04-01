@@ -22,6 +22,9 @@ gem 'bootstrap', '~> 4.3.1'
 # jquery-rails (Donal D'silva)
 gem 'jquery-rails'
 
+# Devise user login system (Donal D'silva)
+gem 'devise'
+
 # Use CoffeeScript for .coffee assets and views
 gem 'coffee-rails', '~> 4.2'
 # Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks
