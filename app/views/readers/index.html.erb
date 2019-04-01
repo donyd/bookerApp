@@ -1,31 +1,33 @@
-<p id="notice"><%= notice %></p>
+<div class="container">
+    <p id="notice"><%= notice %></p>
 
-<h1>Readers</h1>
+  <h1>Readers</h1>
 
-<table>
-  <thead>
-    <tr>
-      <th>Firstname</th>
-      <th>Lastname</th>
-      <th>Email</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @readers.each do |reader| %>
+  <table>
+    <thead>
       <tr>
-        <td><%= reader.firstname %></td>
-        <td><%= reader.lastname %></td>
-        <td><%= reader.email %></td>
-        <td><%= link_to 'Show', reader %></td>
-        <td><%= link_to 'Edit', edit_reader_path(reader) %></td>
-        <td><%= link_to 'Delete', reader, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <th>Firstname</th>
+        <th>Lastname</th>
+        <th>Email</th>
+        <th colspan="3"></th>
       </tr>
-    <% end %>
-  </tbody>
-</table>
+    </thead>
 
-<br>
+    <tbody>
+      <% @readers.each do |reader| %>
+        <tr>
+          <td><%= reader.firstname %></td>
+          <td><%= reader.lastname %></td>
+          <td><%= reader.email %></td>
+          <td><%= link_to 'Show', reader %></td>
+          <td><%= link_to 'Edit', edit_reader_path(reader) %></td>
+          <td><%= link_to 'Delete', reader, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
 
-<%= link_to 'New Reader', new_reader_path %>
+  <br>
+
+  <%= link_to 'New Reader', new_reader_path, class:"btn btn-sm btn-block btn-primary" %>
+</div>

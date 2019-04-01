@@ -1,25 +1,27 @@
-<h1><%= @bookshelf.shelf_name %></h1>
-<h2>contains <%= @bookshelf.count %> books</h2>
+<div class="container">
+    <h1><%= @bookshelf.shelf_name %></h1>
+  <h2>contains <%= @bookshelf.count %> books</h2>
 
-<p><strong>Title:</strong>
-  <%= @book.title %>
+  <p><strong>Title:</strong>
+    <%= @book.title %>
+    </p>
+
+  <p><strong>Firstname:</strong>
+    <%= @book.author_firstname %>
   </p>
 
-<p><strong>Firstname:</strong>
-  <%= @book.author_firstname %>
-</p>
+  <p><strong>Lastname:</strong>
+    <%= @book.author_lastname %>
+  </p>
 
-<p><strong>Lastname:</strong>
-  <%= @book.author_lastname %>
-</p>
+  <p><strong>Year:</strong>
+    <%= @book.year %>
+  </p>
 
-<p><strong>Year:</strong>
-  <%= @book.year %>
-</p>
+  <p><strong>Genre:</strong>
+    <%= @book.genre %>
+  </p>
 
-<p><strong>Genre:</strong>
-  <%= @book.genre %>
-</p>
-
-<%= link_to 'Edit', edit_reader_bookshelf_path(@reader, @bookshelf) %> |
-<%= link_to 'Back', reader_bookshelves_path(@reader) %>
+  <%= link_to 'Edit', edit_reader_bookshelf_path(@reader, @bookshelf), class:"btn btn-sm btn-block btn-primary" %>
+  <%= link_to 'Back', reader_bookshelf_books_path(@reader, @bookshelf), class:"btn btn-sm btn-block btn-primary" %>
+</div>

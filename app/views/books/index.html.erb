@@ -1,17 +1,19 @@
-<h1>Books for <%= @bookshelf.shelf_name %></h1>
-<table>
-   <tr>
-      <th>Books</th>
-   </tr>
-   <% for book in @books %>
-   <tr>
-      <td><%= book.title %></td>
-      <td><%= link_to 'Show', reader_bookshelf_book_path(@reader, @bookshelf, book.id)%></td>
-      <td><%= link_to 'Edit', edit_reader_bookshelf_book_path(@reader, @bookshelf, book.id)%></td>
-      <td><%= link_to 'Delete', reader_bookshelf_book_path(@reader, @bookshelf, book), :confirm => 'Are you sure?', :method => :delete %></td>
-   </tr>
-   <% end %>
-</table>
-<br />
-<%= link_to 'New Book', new_reader_bookshelf_book_path(@reader) %> |
-<%= link_to 'Back to Bookshelf', reader_bookshelves_path(@reader) %>
+<div class="container">
+    <h1>Books for <%= @bookshelf.shelf_name %></h1>
+  <table>
+     <tr>
+        <th>Books</th>
+     </tr>
+     <% for book in @books %>
+     <tr>
+        <td><%= book.title %></td>
+        <td><%= link_to 'Show', reader_bookshelf_book_path(@reader, @bookshelf, book.id)%></td>
+        <td><%= link_to 'Edit', edit_reader_bookshelf_book_path(@reader, @bookshelf, book.id)%></td>
+        <td><%= link_to 'Delete', reader_bookshelf_book_path(@reader, @bookshelf, book), :confirm => 'Are you sure?', :method => :delete %></td>
+     </tr>
+     <% end %>
+  </table>
+  <br />
+  <%= link_to 'New Book', new_reader_bookshelf_book_path(@reader), class:"btn btn-sm btn-block btn-primary" %>
+  <%= link_to 'Back to Bookshelves', reader_bookshelves_path(@reader), class:"btn btn-sm btn-block btn-primary" %>
+</div>

@@ -1,3 +1,5 @@
-<h1>Editing bookshelf</h1>
-<%= render 'form' %><%= link_to 'Show', reader_bookshelf_path(@reader, @bookshelf) %> |
-<%= link_to 'Back', reader_bookshelf_path(@reader) %>
+<div class="container">
+    <h1>Editing bookshelf</h1>
+  <%= render 'form' %><%= link_to 'Show', reader_bookshelf_path(@reader, @bookshelf), class:"btn btn-sm btn-block btn-primary" %>
+  <%= link_to 'Back', reader_bookshelf_path(@reader), class:"btn btn-sm btn-block btn-primary" %>
+</div>
