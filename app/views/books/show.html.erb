@@ -1,16 +1,26 @@
-<h1>Books in <%= @bookshelf %></h1>
-<p>
-  <b>Bookshelf details:</b>
-  <%= @bookshelf %>
+<h1><%= @bookshelf.shelf_name %></h1>
+<h2>contains <%= @bookshelf.count %> books</h2>
+
+<p><strong>Title:</strong>
+  <%= @book.title %>
+  </p>
+
+<h4>Author</h4>
+<p><strong>Firstname:</strong>
+  <%= @book.author_firstname %>
 </p>
 
-<h2>Books</h2>
-<% @bookshelf.book.each do |book| %>
-<p>
-  <b>Books:</b>
-  <%= book.title %>
+<p><strong>Lastname:</strong>
+  <%= @book.author_lastname %>
 </p>
-<% end %>
+
+<p><strong>Year:</strong>
+  <%= @book.year %>
+</p>
+
+<p><strong>Genre:</strong>
+  <%= @book.genre %>
+</p>
 
 <%= link_to 'Edit', edit_reader_bookshelf_path(@reader, @bookshelf) %> |
 <%= link_to 'Back', reader_bookshelves_path(@reader) %>

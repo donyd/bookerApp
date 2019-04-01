@@ -6,9 +6,9 @@
    <% for book in @books %>
    <tr>
       <td><%= book.title %></td>
-      <td><%= link_to 'Show', reader_bookshelf_book(@reader, @bookshelf, @book)%></td>
-      <td><%= link_to 'Edit', edit_reader_bookshelf_book(@reader, bookshelf, book)%></td>
-      <td><%= link_to 'Delete', reader_bookshelf_path(@reader, bookshelf), :confirm => 'Are you sure?', :method => :delete %></td>
+      <td><%= link_to 'Show', reader_bookshelf_book_path(@reader, @bookshelf, book.id)%></td>
+      <td><%= link_to 'Edit', edit_reader_bookshelf_book_path(@reader, @bookshelf, book.id)%></td>
+      <td><%= link_to 'Delete', reader_bookshelf_book_path(@reader, @bookshelf, book), :confirm => 'Are you sure?', :method => :delete %></td>
    </tr>
    <% end %>
 </table>

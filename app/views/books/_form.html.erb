@@ -1,4 +1,4 @@
-<%= form_for([@reader, @bookshelf]) do |f| %>
+<%= form_for([@reader, @bookshelf, @book]) do |form| %>
 <% if @bookshelf.errors.any? %>
 <div id="error_explanation">
    <h2><%= pluralize(@bookshelf.errors.count, "error")%>prohibited this bookshelf from being saved:</h2>
@@ -9,8 +9,31 @@
    </ul>
 </div>
 <% end %>
+
 <div class="field">
-   <p><%= f.label :Shelf %><br /><%= f.text_field :shelf_name %></p>
+  <%= form.label :Title %>
+  <%= form.text_field :title %>
 </div>
-<div class="actions"><%= f.submit %></div>
+
+<div class="field">
+  <%= form.label :Firstname %>
+  <%= form.text_field :author_firstname %>
+</div>
+
+<div class="field">
+  <%= form.label :Lastname %>
+  <%= form.text_field :author_lastname %>
+</div>
+
+<div class="field">
+  <%= form.label :Year %>
+  <%= form.text_field :year %>
+</div>
+
+<div class="field">
+  <%= form.label :Genre %>
+  <%= form.text_field :genre %>
+</div>
+
+<div class="actions"><%= form.submit %></div>
 <% end %>
