@@ -7,7 +7,6 @@
      <% for bookshelf in @bookshelves %>
      <tr>
         <td><%= bookshelf.shelf_name %></td>
-        <td><%= bookshelf.id %></td>
         <td><%= bookshelf.count %></td>
         <td><%= link_to 'Show', reader_bookshelf_books_path(@reader, bookshelf.id) %></td>
         <td><%= link_to 'Edit', edit_reader_bookshelf_path(@reader, bookshelf)%></td>
