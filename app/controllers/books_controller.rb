@@ -26,7 +26,7 @@ class BooksController < ApplicationController
     # /bookshelf/1/book
     @reader = Reader.find(params[:reader_id])
     @bookshelf = @reader.bookshelves.find(params[:bookshelf_id])
-    @book = @bookshelf.books.build(params.require(:book).permit(:title))
+    @book = @bookshelf.books.build(params.require(:book).permit(:title, :author_firstname, :author_lastname, :year, :genre))
 
     if @book.save
       redirect_to reader_bookshelf_book_url(@reader, @bookshelf, @book)
@@ -48,7 +48,7 @@ class BooksController < ApplicationController
     @bookshelf = @reader.bookshelves.find(params[:bookshelf_id])
     @book = @bookshelf.books.find(params[:id])
 
-    if @book.update_attributes(params.require(:book).permit(:title))
+    if @book.update_attributes(params.require(:book).permit(:title, :author_firstname, :author_lastname, :year, :genre))
       redirect_to reader_bookshelf_book_url(@reader, @bookshelf, @book)
     else
       render :action => "edit"
