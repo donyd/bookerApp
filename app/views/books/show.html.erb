@@ -1,7 +1,16 @@
-<h1>Bookshelves for <%= @reader.firstname %></h1>
+<h1>Books in <%= @bookshelf %></h1>
 <p>
   <b>Bookshelf details:</b>
-  <%= @bookshelf.shelf_name %>
+  <%= @bookshelf %>
 </p>
+
+<h2>Books</h2>
+<% @bookshelf.book.each do |book| %>
+<p>
+  <b>Books:</b>
+  <%= book.title %>
+</p>
+<% end %>
+
 <%= link_to 'Edit', edit_reader_bookshelf_path(@reader, @bookshelf) %> |
 <%= link_to 'Back', reader_bookshelves_path(@reader) %>

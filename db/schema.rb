@@ -10,7 +10,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_03_31_153446) do
+ActiveRecord::Schema.define(version: 2019_04_01_110703) do
+
+  create_table "books", force: :cascade do |t|
+    t.string "title"
+    t.string "author_firstname"
+    t.string "author_lastname"
+    t.date "year"
+    t.string "genre"
+    t.integer "bookshelf_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["bookshelf_id"], name: "index_books_on_bookshelf_id"
+  end
 
   create_table "bookshelves", force: :cascade do |t|
     t.string "shelf_name"
