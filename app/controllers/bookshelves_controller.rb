@@ -20,8 +20,12 @@ class BookshelvesController < ApplicationController
     @bookshelf = @reader.bookshelves.build
   end
 
+  def addBook()
+    self.count += 1
+  end
+
   def create
-    # Associate a bookshelf with a movie = 1
+    # Associate a bookshelf with a id = 1
     # /reader/1/bookshelf
     @reader = Reader.find(params[:reader_id])
     @bookshelf = @reader.bookshelves.build(params.require(:bookshelf).permit(:shelf_name))

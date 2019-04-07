@@ -1,4 +1,7 @@
+require 'singleton'
+
 class ReadersController < ApplicationController
+  include Singleton
   before_action :set_reader, only: [:show, :edit, :update, :destroy]
 
   # GET /readers

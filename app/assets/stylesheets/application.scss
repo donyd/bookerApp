@@ -13,8 +13,16 @@
  */
 @import "bootstrap";
 
-$td-padding: 2%;
+tr > td {
+  padding: 5px;
+}
 
-table {
-  padding: 5%;
+th {
+  padding: 5px;
+}
+
+.inner > ul > li > a {
+  border-width: 0.5px;
+  border-radius: 1px;
+  padding-right: 10px;
 }

@@ -1,4 +1,20 @@
+require 'observer'
+
 class BooksController < ApplicationController
+  include Observable
+
+  # attr_reader = title, author_firstname
+  # attr_reader = author_lastname, genre
+  # attr_reader = year
+  #
+  # def intialize(title, author_firstname, author_lastname, year, genre)
+  #   @title = title
+  #   @author_firstname = author_firstname
+  #   @author_lastname = author_lastname
+  #   @year = year
+  #   @genre = genre
+  # end
+
   def index
     # /reader/1/bookshelves/1/books
     @reader = Reader.find(params[:reader_id])
@@ -19,6 +35,10 @@ class BooksController < ApplicationController
     @reader = Reader.find(params[:reader_id])
     @bookshelf = @reader.bookshelves.find(params[:bookshelf_id])
     @book = @bookshelf.books.build
+
+    changed
+    notify_observers(self)
+
   end
 
   def create
@@ -62,10 +82,9 @@ class BooksController < ApplicationController
 
     @book.destroy
     respond_to do |format|
-      format.html { redirect_to reader_bookshelves_path(@reader) }
+      format.html { redirect_to reader_bookshelf_books_path(@reader) }
       format.xml { head :ok }
     end
   end
-
 
 end

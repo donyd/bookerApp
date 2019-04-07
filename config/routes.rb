@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   devise_for :users
-  root to: "home#index"
+  root to: "readers#index"
   get 'books/index'
   get 'books/show'
   get 'books/new'
