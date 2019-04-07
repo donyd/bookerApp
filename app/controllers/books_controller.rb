@@ -21,6 +21,8 @@ class BooksController < ApplicationController
     @bookshelf = @reader.bookshelves.find(params[:bookshelf_id])
     @books = @bookshelf.books
 
+    session[:reader_id] = @reader.id
+    session[:bookshelf_id] = @bookshelf.id
   end
 
   def show
@@ -61,6 +63,14 @@ class BooksController < ApplicationController
     @reader = Reader.find(params[:reader_id])
     @bookshelf = @reader.bookshelves.find(params[:bookshelf_id])
     @book = @bookshelf.books.find(params[:id])
+  end
+
+  def search
+    if params[:search].blank?
+      @books = Book.all
+    else
+      @books = Book.search(params)
+    end
   end
 
   def update

@@ -3,6 +3,10 @@
   <table>
      <tr>
         <th>Books</th>
+        <%= form_tag books_search_url, method: :get do %>
+        <%= text_field_tag :search, nil, placeholder: "Search" %>
+        <%= submit_tag "Search" %>
+        <% end %>
      </tr>
      <% for book in @books %>
      <tr>
